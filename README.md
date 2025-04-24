@@ -3,6 +3,8 @@
 A Python wrapper for a binary that reports system metrics like CPU/GPU temperature, 
 memory usage, and power consumption.
 
+This just a simple wrapper around https://github.com/vladkens/macmon
+
 ## Installation
 
 ```bash
