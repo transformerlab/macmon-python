@@ -34,7 +34,7 @@ setup(
     description="Python wrapper for macmon binary (macOS Apple Silicon only)",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author="Your Name",
+    author="Ali Asaria",
     author_email="your.email@example.com",
     url="https://github.com/transformerlab/macmon-python",
     packages=find_packages(),
