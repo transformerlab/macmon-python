@@ -35,7 +35,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Ali Asaria",
-    author_email="your.email@example.com",
+    author_email="developers@transformerlab.ai",
     url="https://github.com/transformerlab/macmon-python",
     packages=find_packages(),
     include_package_data=True,  # This tells setuptools to include data files specified in MANIFEST.in
