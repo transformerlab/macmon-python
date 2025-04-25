@@ -30,7 +30,7 @@ check_platform_compatibility()
 # Setup configuration
 setup(
     name="macmon-python",
-    version="0.1.0",
+    version="0.1.1",
     description="Python wrapper for macmon binary (macOS Apple Silicon only)",
     long_description=long_description,
     long_description_content_type="text/markdown",
