@@ -32,7 +32,7 @@ import asyncio
 async def main():
     # Create an instance
     metrics = MacMon()
-    data = await metrics.get_metrics()
+    data = await metrics.get_metrics_async()
 
     print("System Metrics:")
     print(data)
