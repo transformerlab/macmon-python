@@ -24,6 +24,18 @@ print("System Metrics:")
 print(data)
 ```
 
-## License
+### Async Usage
 
-MIT
+```python
+from macmon import MacMon
+import asyncio
+async def main():
+    # Create an instance
+    metrics = MacMon()
+    data = await metrics.get_metrics()
+
+    print("System Metrics:")
+    print(data)
+
+asyncio.run(main())
+```
