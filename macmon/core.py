@@ -1,9 +1,10 @@
+import asyncio
 import json
 import os
 import platform
 import subprocess
 from pathlib import Path
-from typing import Dict, Any, Optional
+from typing import Any, Dict, Optional
 
 
 class MacMonError(Exception):
@@ -71,5 +72,26 @@ class MacMon:
         
         except subprocess.CalledProcessError as e:
             raise MacMonError(f"Error running binary: {e.stderr}")
+        except json.JSONDecodeError as e:
+            raise MacMonError(f"Error parsing JSON output: {e}")
+        
+    async def get_metrics_async(self) -> Dict[str, Any]:
+        """
+        Asynchronously run the binary and return the metrics as a Python dictionary.
+        """
+        try:
+            proc = await asyncio.create_subprocess_exec(
+                self.binary_path, "pipe", "-s", "1",
+                stdout=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.PIPE,
+            )
+
+            stdout, stderr = await proc.communicate()
+
+            if proc.returncode != 0:
+                raise MacMonError(f"Error running binary: {stderr.decode().strip()}")
+
+            return stdout.decode().strip()
+
         except json.JSONDecodeError as e:
             raise MacMonError(f"Error parsing JSON output: {e}")
