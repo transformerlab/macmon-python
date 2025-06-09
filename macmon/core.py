@@ -62,7 +62,7 @@ class MacMon:
         try:
             # Run the binary with the argument -s 1 and capture its output
             result = subprocess.run(
-                [self.binary_path, "pipe", "-s", "1"],
+                [self.binary_path, "pipe", "-s", "1", "--soc-info"],
                 capture_output=True,
                 text=True,
                 check=True
@@ -81,7 +81,7 @@ class MacMon:
         """
         try:
             proc = await asyncio.create_subprocess_exec(
-                self.binary_path, "pipe", "-s", "1",
+                self.binary_path, "pipe", "-s", "1", "--soc-info",
                 stdout=asyncio.subprocess.PIPE,
                 stderr=asyncio.subprocess.PIPE,
             )
